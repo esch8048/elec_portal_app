@@ -1,0 +1,18 @@
+<body> 
+	<div class="login">
+			<h1>Welcome to ELECPortal</h1>
+		<h2>Log in</h2>
+		<%= form_tag sessions_path do %>
+		  <p>
+			<%= label_tag :email %><br />
+			<%= text_field_tag :email, params[:email] %>
+		  </p>
+		  <p>
+			<%= label_tag :password %><br />
+			<%= password_field_tag :password %>
+		  </p>
+		  <p class="button"><%= submit_tag "Log in" %></p>
+		  <p class="button"><%= link_to 'Register', new_user_path %></p>
+		<% end %>
+	</div>
+</body>

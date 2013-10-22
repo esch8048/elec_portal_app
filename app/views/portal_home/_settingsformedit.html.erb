@@ -1,0 +1,34 @@
+<h4>Settings</h4>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+  </div>  
+  <div class="field">
+    <%= f.label :signature %><br />
+    <%= f.text_area :signature, rows: 6 %>
+  </div>  
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+<%= link_to 'Cancel', settings_path %>

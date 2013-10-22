@@ -1,0 +1,21 @@
+<% title @forum.name  %>  
+  
+<table>  
+  <tr>  
+    <th width="60%">Thread</th>  
+    <th width="10%">Replies</th>  
+    <th width="30%">Last Post</th>  
+  </tr>  
+  <% for topic in @forum.topics %>  
+    <tr>  
+      <td><%= link_to h(topic.name), topic_path(topic.id) %>  
+      <td><%= topic.posts.size%></td>  
+      <td class="right">
+	  <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago <% else %>no posts<% end %></td>  
+      <% if admin? %><td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td><% end %>  
+    </tr>  
+  <% end %>  
+</table>  
+  
+<p><% if current_user %><%= link_to "New Thread", "/topics/new?forum=#{@forum.id}" %><% end %></p> 
+<p><%= link_to "Home", "/forums" %></p>

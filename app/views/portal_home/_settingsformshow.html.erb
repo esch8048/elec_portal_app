@@ -1,0 +1,23 @@
+<h4>Settings</h4>
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Avatar url:</b>
+  <%= @user.avatar.url %>
+</p>
+
+<p>
+  <b>Signature:</b>
+  <%= @user.signature %>
+</p>
+
+<%= link_to 'Edit', edit_settings_path %> |
+<%= link_to 'Back', portal_home_path %>

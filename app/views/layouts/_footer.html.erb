@@ -1,0 +1,18 @@
+<footer class="footer">
+  <small>
+  <% if current_user %>
+    Logged in as <%= current_user.username unless current_user.blank? %>.
+    <%= link_to "Log out", signout_path %>
+  <% else %>
+    <%= link_to "Sign up", signup_path %> or
+    <%= link_to "Log in", signin_path %>
+  <% end %>
+  </small>
+  <nav>
+    <ul>
+      <li><%= link_to "About",   about_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>

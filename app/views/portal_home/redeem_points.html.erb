@@ -1,0 +1,19 @@
+<h1>Redeem points</h1>
+
+<table width="100%">
+  <tr width-"100%">
+	<td width="25%" valign="top">
+			<p>Forum</p>
+			<p>Blogs</p>
+			<p><%= link_to 'Settings', settings_path %></p>
+	</td>
+	<td width="75%">
+		<% form_tag do %>
+			How many points would you like to redeem? <%= number_field_tag :points_redeemed %>
+		<%= submit_tag "Submit" %>
+		<% end %>
+	</td>
+  </tr>
+</table>
+
+<br />

@@ -1,0 +1,37 @@
+<h1>Welcome to ELECPortal</h1>
+
+<table width="100%">
+  <tr width-"100%">
+	<td width="25%" valign="top">
+			<p><%= link_to 'Forum', forums_path %></p>
+			<p><%= link_to 'Blogs', blog_path %></p>
+	</td>
+	<td width="50%" valign="top">
+	<% if @index %>
+		<% if @no_feeds %>
+			<h3>No subscribed feeds!</h3>
+			<%= link_to 'Add some feeds...', customise_feed_path %>				
+		<% else %>
+			<%= render 'feed' %>
+		<% end %>		
+	<% elsif @customise %>
+		<%= render 'customisefeed' %>
+	<% elsif @show_settings %>
+		<%= render 'settingsformshow' %>	
+	<% elsif @edit_settings %>
+		<%= render 'settingsformedit' %>		
+	<% elsif @points_whats_this %>
+		<%= render 'points_whats_this' %>	
+	<% elsif @redeempoints %>
+		<%= render 'redeempoints' %>			
+	<% end %>
+	</td>
+	<td width="25%" valign="top">
+		<table border="3">
+			<tr><td><%= render 'points' %></td></tr>
+		</table>
+	</td>
+  </tr>
+</table>
+
+<br />

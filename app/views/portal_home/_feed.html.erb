@@ -1,0 +1,10 @@
+<p><%= @stories %> stories. Generated: <%= Time.now.strftime("%m/%d/%Y at %I:%M%p") %></p>  
+<%= link_to 'Customise feed', customise_feed_path %>		
+<% for feed in @feeds %>
+<h3><a href="<%= feed.url %>"><%= feed.title %></a></h3>  
+<% for entry in feed.entries.first(@max_items) %>
+    <h5><a href="<%= entry.url %>"><%= entry.title %></a></h5>
+    <p style="color:#444;font-size:90%"><%= ActionView::Base.full_sanitizer.sanitize(entry.content).html_safe %></p>
+<% end %></br>	
+<% end %>
+

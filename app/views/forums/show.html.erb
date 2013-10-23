@@ -11,9 +11,11 @@
       <td><%= link_to h(topic.name), topic_path(topic.id) %>  
       <td><%= topic.posts.size%></td>  
       <td class="right">
-	  <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago <% else %>no posts<% end %></td>  
-      <% if admin? %><td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td><% end %>  
-    </tr>  
+	  <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago <% else %>no posts<% end %></td>
+      <% if current_user? %>	  
+		<% if admin? %><td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td><% end %>  
+      <% end %>
+	</tr>  
   <% end %>  
 </table>  
   

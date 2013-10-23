@@ -1,5 +1,4 @@
 class TopicsController < ApplicationController
-  before_filter :login_required, :except => [:index, :show]  
   before_filter :admin_required, :only => :destroy
   def index
     @topics = Topic.all

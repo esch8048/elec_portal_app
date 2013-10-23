@@ -33,6 +33,7 @@ textarea {
     margin-bottom: 10px;
   }
 }
+/* bootstrap override for branding */
 .navbar-inverse .navbar-inner {
 background-color: #f5af00;
   background-image: -moz-linear-gradient(top, #f5af00, #f5af00);
@@ -108,8 +109,7 @@ footer {
   a {
     color: $gray;
     &:hover {
-        background-color: transparent;
-
+      background-color: transparent;
       color: $grayDarker;
     }
   }

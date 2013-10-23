@@ -8,8 +8,41 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
+    <div style="
+  width: 79.8em;
+  margin: 0 auto;"
+  id="w1">  
+    <div style="
+    position: relative;
+    padding: .7em 0 .7em 2em;
+    margin: 0;
+    min-width: 77.8em;"
+    id="w2"><div style="
+        background-color:#125687; 
+        border-right: 1.5em solid #f5af00;
+        font-size: 1em;
+        background: #12416c;
+        height: 8.8em;
+        
+        margin: 0;" class="masthead">
+        
+        <img style="left: -0.048em;
+
+      text-align: left;"
+      src="http://sydney.edu.au/images/common/university_sydney_logo.gif"/>
+          
+      </div>
+      <div style=
+      "border-style: solid;
+      border-color: #dbd3c2;
+      border-width: 0 .100em .100em .100em;
+      width: 75.6em;
+      margin: 0;
+      background: #fff;
+      position: relative;"
+      id="w3">
     <%= render 'layouts/header' %>
-    <div class="container">
+    <div style="padding-top:10px;"class="container">
       <%= yield %>
 
 	<%- flash.each do |key, msg| -%>
@@ -20,6 +53,8 @@
 	  </div>
 	<%- end -%>
       <%= render 'layouts/footer' %>
+    </div></div>
     </div>
+  </div>
   </body>
 </html>

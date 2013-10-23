@@ -5,7 +5,8 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(params[:micropost])
     if @micropost.save
       flash[:success] = "Micropost created!"
-      redirect_to root_url
+      redirect_to current_user
+
     else
       @feed_items = []
       render 'static_pages/blogs_home'

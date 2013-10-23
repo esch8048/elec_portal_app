@@ -5,7 +5,11 @@ ElecPortalApp::Application.routes.draw do
   resources :topics
   resources :forums
   resources :microposts, only: [:create, :destroy]
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions
 
   get "users/new"

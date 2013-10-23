@@ -8,7 +8,7 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     else
       @feed_items = []
-      render 'static_pages/home'
+      render 'static_pages/blogs_home'
     end
   end
 def destroy

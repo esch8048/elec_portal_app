@@ -12,7 +12,7 @@
       <td align ="center"><%= topic.posts.size%></td>  
       <td align ="center">
 	    <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago <% else %>no posts<% end %></td> 
-	<% if admin? %><td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td><% end %>	</tr>  
+	<% if admin? %><td><%= link_to "Delete", topic, :confirm => 'Are you sure?', :method => :delete, class:"btn btn-danger" %></td><% end %>	</tr>  
   <% end %>  
 </table>  
   

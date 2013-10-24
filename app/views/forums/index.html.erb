@@ -1,4 +1,4 @@
-<% title "Forum List" %>  
+<h1>Forum List</h1>  
 
 <table class="table table-striped">
         <thead>
@@ -6,8 +6,8 @@
            <th>Forum</th>  
           <th>Description</th> 
 
-          <th>Activity</th> 
           <th>Last Post</th> 
+          <th>Activity</th> 
 
           </tr>
         </thead>
@@ -28,7 +28,7 @@
                   no posts
                 <% end %>
             </td>
-            <td><%= forum.topics.count %> topics</td>
+            <td><%= forum.topics.count %> threads</td>
     <% if current_user.admin %>  
           <td>
             <%= link_to "Edit", edit_forum_path(forum) %>

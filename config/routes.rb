@@ -23,6 +23,7 @@ ElecPortalApp::Application.routes.draw do
   root to: 'static_pages#home'
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
+  match '/feed', to: 'portal_home#feed'
   match '/points_whats_this', to: 'portal_home#points_whats_this'
   match '/customise_feed', to: 'portal_home#customise'
   match '/signup',  to: 'users#new'

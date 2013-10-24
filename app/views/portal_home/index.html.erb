@@ -2,6 +2,8 @@
 <div class="row">
     <div class="span6">
     	<% if @index %>
+			<%= render 'home' %>
+		<% elsif @show_feed %>
 			<% if @no_feeds %>
 				<h4 >No subscribed feeds!</h4>
 				<%= link_to 'Add some feeds...', customise_feed_path %>				
@@ -32,6 +34,8 @@
 	</td>
 	<td width="50%" valign="top">
 	<% if @index %>
+		<%= render 'home' %>
+	<% elsif @show_feed %>
 		<% if @no_feeds %>
 			<h3>No subscribed feeds!</h3>
 			<%= link_to 'Add some feeds...', customise_feed_path %>				

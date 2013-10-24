@@ -1,3 +1,4 @@
+require 'feed-normalizer'
 class RssItemsController < ApplicationController
   # GET /rss_items
   # GET /rss_items.json
@@ -57,16 +58,32 @@ class RssItemsController < ApplicationController
   # PUT /rss_items/1.json
   def update
     @rss_item = RssItem.find(params[:id])
-   
-    respond_to do |format|
-      if @rss_item.update_attributes(params[:rss_item])
-        format.html { redirect_to portal_home_path, notice: 'Rss feed was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @rss_item.errors, status: :unprocessable_entity }
-      end
-    end
+    @url_test = params[:rss_item][:url]
+	begin
+		begin
+			parsed_feed = FeedNormalizer::FeedNormalizer.parse open(@url_test.strip)
+			if parsed_feed.nil?
+				redirect_to customise_feed_path, notice: 'Invalid feed!'
+			else	
+				@rss_item.update_attributes(params[:rss_item])
+				redirect_to feed_path, notice: 'Rss feed was successfully updated.'	  
+			end
+		rescue
+			redirect_to customise_feed_path, notice: 'Invalid feed!'
+		end
+	end
+	
+
+	#respond_to do |format|
+	#	  if v.valid?
+	#		@rss_item.update_attributes(params[:rss_item])
+	#		format.html { redirect_to portal_home_path, notice: 'Rss feed was successfully updated.' }
+	#		format.json { head :no_content }
+	#	  else
+	#		format.html { redirect_to customise_feed_path, notice: 'Invalid feed!' }
+	#		format.json { render json: @rss_item.errors, status: :unprocessable_entity }
+	#	  end
+    #end
   end
 
   # DELETE /rss_items/1

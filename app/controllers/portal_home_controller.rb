@@ -9,9 +9,13 @@ require 'FileUtils'
 class PortalHomeController < ApplicationController
 	include ActionView::Helpers::TextHelper
 
-  def index
+	def index
+	  @index = true
+	end
+	
+  def feed
   
-	@index = true
+	@show_feed = true
 	if current_user
 		feed_items = current_user.rss_feed.rss_items
 		@feeds = []
@@ -20,7 +24,11 @@ class PortalHomeController < ApplicationController
 		for feed_item in feed_items
 			if feed_item.url == "Enter feed url here"
 			else
-				@feeds.push(FeedNormalizer::FeedNormalizer.parse open(feed_item.url.strip))
+				parsed_feed = FeedNormalizer::FeedNormalizer.parse open(feed_item.url.strip)
+				if parsed_feed.nil?
+				else
+					@feeds.push(parsed_feed)
+				end
 			end
 		end	
 
@@ -33,8 +41,9 @@ class PortalHomeController < ApplicationController
 		@points = current_user.points
 	else
 		redirect_to login_url
-    end
-  end
+	end
+	render "index"
+   end
   
   def customise 
    @rss_feed = current_user.rss_feed
@@ -92,8 +101,9 @@ class PortalHomeController < ApplicationController
 		#generate pdf - add some more things to it!	
 		Prawn::Document.generate("#{Rails.root}/app/assets/redeempoints.pdf") do |pdf|
 			pdf.encrypt_document
-			pdf.image "#{Rails.root}/app/assets/images/elecportallogo.png"
-			pdf.span(350, :position => :center) do
+			pdf.image "#{Rails.root}/app/assets/images/header.png", :height => 80
+			pdf.move_down 10
+			pdf.span(350, :position => :left) do
 			 pdf.text "Coupon for #{@points_string}, redeemable at any USYD Camperdown campus store"
 			 pdf.text "*Please note that this is for demonstration purposes only and is not a real thing!"
 			end

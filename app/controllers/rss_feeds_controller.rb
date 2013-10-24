@@ -62,7 +62,7 @@ class RssFeedsController < ApplicationController
    
     respond_to do |format|
       if @rss_feed.update_attributes(params[:rss_feed])
-        format.html { redirect_to portal_home_path, notice: 'Rss feed was successfully updated.' }
+        format.html { redirect_to feed_path, notice: 'Rss feed was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

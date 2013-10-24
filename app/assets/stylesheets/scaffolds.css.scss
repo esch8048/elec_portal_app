@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 body {
   background-color: #fff;
   color: #333;
@@ -5,7 +7,9 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
-
+h4 {
+  line-height:40px;
+}
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -24,8 +28,8 @@ a {
     color: #666;
   }
   &:hover {
-    color: #fff;
-    background-color: #000;
+      color: $grayDarker;
+    background-color: transparent;
   }
 }
 
@@ -66,4 +70,21 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+/* bootstrap override for branding */
+.navbar-inverse .navbar-inner {
+background-color: #f5af00;
+  background-image: -moz-linear-gradient(top, #f5af00, #f5af00);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5af00), to(#f5af00));
+  background-image: -webkit-linear-gradient(top, #f5af00, #f5af00);
+  background-image: -o-linear-gradient(top, #f5af00, #f5af00);
+  background-image: linear-gradient(to bottom, #f5af00, #f5af00);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5af00', endColorstr='#f5af00', GradientType=0);
+  border-color: #252525;
+}
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }

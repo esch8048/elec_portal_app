@@ -11,12 +11,12 @@
       </ul>
     </div>
   <% end %>
-   <div class="field">
-    Set maximum stories per feed: <%= f.number_field :max_items %>
+   <div class="form-inline">
+    Set maximum stories per feed: <%= f.number_field :max_items , style: "width:50px;" %>
+  
+    <%= f.submit "Apply", class: "btn"  %>
   </div>  
-  <div class="actions">
-    <%= f.submit "Apply" %>
-  </div>
+  
 <% end %>
 
 <h5>Subscribe to up to three feeds </h5>
@@ -33,17 +33,12 @@
     </div>
   <% end %>
 
-  <table>
-	<tr><td>
-	  <div class="field">
-		<%= f.url_field :url %>
-	  </div>
-  </td>
-  <td>
-	  <div class="actions">
-		<%= f.submit "Subscribe" %>
-	  </div>
-  </td></tr></table>
+  
+   <div class="form-inline">
+                <%= f.url_field :url %>
+        
+                <%= f.submit "Subscribe" , class: "btn"  %>
+          </div>
 <% end %>
 
 <%= form_for(@rss_feed_item_2) do |f| %>
@@ -58,16 +53,11 @@
       </ul>
     </div>
   <% end %>
-  <table><tr><td>
-  <div class="field">
-    <%= f.url_field :url %>
-  </div>
-  </td>
-  <td>
-  <div class="actions">
-    <%= f.submit "Subscribe" %>
-  </div>
-  </td></tr></table>
+   <div class="form-inline">
+                <%= f.url_field :url %>
+        
+                <%= f.submit "Subscribe" , class: "btn"  %>
+          </div>
 <% end %>
 
 <%= form_for(@rss_feed_item_3) do |f| %>
@@ -82,14 +72,9 @@
       </ul>
     </div>
   <% end %>
-  <table><tr><td>
-  <div class="field">
-    <%= f.url_field :url %>
-  </div>
-  </td>
-  <td>
-  <div class="actions">
-    <%= f.submit "Subscribe" %>
-  </div>
-  </td></tr></table>
+   <div class="form-inline">
+                <%= f.url_field :url %>
+        
+                <%= f.submit "Subscribe" , class: "btn"  %>
+          </div>
 <% end %>

@@ -11,6 +11,7 @@ ElecPortalApp::Application.routes.draw do
     end
   end
   resources :sessions
+  resources :relationships, only: [:create, :destroy]
 
   get "users/new"
   get "portal_home" => "portal_home#index", :as => "portal_home"

@@ -83,6 +83,7 @@ GEM
     feed-normalizer (1.5.2)
       hpricot (>= 0.6)
       simple-rss (>= 1.1)
+    feedvalidator (0.1.2)
     ffi (1.9.0)
     ffi (1.9.0-x86-mingw32)
     gherkin (2.12.2)
@@ -200,6 +201,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.1.0)
   faker (= 1.0.1)
   feed-normalizer
+  feedvalidator (~> 0.1.2)
   jquery-rails (= 2.0.2)
   nifty-generators
   nokogiri

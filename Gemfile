@@ -83,3 +83,5 @@ end
 
 #the nifty generators 
 gem 'nifty-generators'
+
+gem "feedvalidator", "~> 0.1.2"

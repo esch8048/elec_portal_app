@@ -93,7 +93,11 @@ GEM
     hashery (2.1.1)
     hike (1.2.3)
     hpricot (0.8.6)
+    httpclient (2.3.4.1)
     i18n (0.6.5)
+    impressionist (1.4.11)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.6.0)
     journey (1.0.4)
     jquery-rails (2.0.2)
       railties (>= 3.2.0, < 5.0)
@@ -201,7 +205,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.1.0)
   faker (= 1.0.1)
   feed-normalizer
-  feedvalidator (~> 0.1.2)
+  impressionist
   jquery-rails (= 2.0.2)
   nifty-generators
   nokogiri

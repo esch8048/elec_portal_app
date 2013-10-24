@@ -1,23 +1,21 @@
 <h1><%= @forum.name  %></h1>
   
-<table>  
+<table class="table table-striped table-hover"> 
   <tr>  
-    <th width="60%">Thread</th>  
+    <th width="50%">Thread</th>  
+    <th width="10%">Views</th>
     <th width="10%">Replies</th>  
     <th width="30%">Last Post</th>  
   </tr>  
   <% for topic in @forum.topics %>  
     <tr>  
-      <td><%= link_to h(topic.name), topic_path(topic.id) %>  
-      <td><%= topic.posts.size%></td>  
-      <td class="right">
-	  <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago <% else %>no posts<% end %></td>
-      <% if current_user? %>	  
-		<% if admin? %><td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td><% end %>  
-      <% end %>
-	</tr>  
+      <td align ="center"><%= link_to h(topic.name), topic_path(topic.id) %>  </td>
+      <td align="center"><%= topic.impressionist_count(:filter=>:session_hash) %></td>
+      <td align ="center"><%= topic.posts.size%></td>  
+      <td align ="center">
+	    <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= link_to topic.most_recent_post_username, "/users/#{topic.last_poster_id}" %><% else %>no posts<% end %></td> 
+	<% if admin? %><td><%= link_to "Delete", topic, :confirm => 'Are you sure?', :method => :delete, class:"btn btn-danger" %></td><% end %>	</tr>  
   <% end %>  
 </table>  
   
-<p><% if current_user %><%= link_to "New Thread", "/topics/new?forum=#{@forum.id}" %><% end %></p> 
-<p><%= link_to "Home", "/forums" %></p>
+<p><% if current_user %><%= link_to "New Thread", "/topics/new?forum=#{@forum.id}", class:"btn" %><% end %><%= link_to "Forum Homepage", "/forums",class:"btn" %></p>

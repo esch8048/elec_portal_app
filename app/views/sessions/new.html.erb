@@ -1,7 +1,10 @@
-<body> 
+<% provide(:title, 'Sign in') %>
+<h1>Sign in</h1>
+
+<div class="row">
+  <div class="span6 offset1">
 	<div class="login">
-			<h1>Welcome to ELECPortal</h1>
-		<h2>Log in</h2>
+			
 		<%= form_tag sessions_path do %>
 		  <p>
 			<%= label_tag :email %><br />
@@ -15,4 +18,4 @@
 		  <p class="button"><%= link_to 'Register', new_user_path  %></p>
 		<% end %>
 	</div>
-</body>
+</div></div>

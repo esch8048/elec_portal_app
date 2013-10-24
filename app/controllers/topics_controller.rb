@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
  
   def create
     @forum = Forum.find(params[:topic][:forum_id])
-    @topic = @forum.topics.create(:name => params[:topic][:name], :last_poster_id => current_user.id, :forum_id => @forum.id, :user_id => current_user.id)
+    @topic = Topic.create(:name => params[:topic][:name], :last_poster_id => current_user.id, :forum_id => @forum.id, :user_id => current_user.id)
      
     if @topic.save
         redirect_to "/forums/#{@topic.forum_id}"

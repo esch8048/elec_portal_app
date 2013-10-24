@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-    before_filter :login_required
   def index
     @posts = Post.all
   end
@@ -14,7 +13,7 @@ class PostsController < ApplicationController
  
   def create  
     @topic = Topic.find(params[:post][:topic_id]);
-    @post = @topic.posts.create(:content => params[:post][:content], :topic_id => params[:post][:topic_id], :user_id => current_user.id)  
+    @post = Post.create(:content => params[:post][:content], :topic_id => @topic.id, :user_id => current_user.id)  
     if @post.save  
       @topic.update_attributes(:last_poster_id => current_user.id, :last_post_at => Time.now)  
       flash[:notice] = "Successfully created post." 

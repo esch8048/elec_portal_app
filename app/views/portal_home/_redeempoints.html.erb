@@ -2,7 +2,7 @@
 
 <%= form_tag portal_home_redeem_path do %>
 	<p>How many points would you like to redeem? <%= number_field_tag :points_redeemed, nil, min: 1 %></p>
-	<p><%= submit_tag "Submit" %></p><p><%= link_to 'Cancel', portal_home_path %></p>
+	<p><%= submit_tag "Submit",class: "btn btn-large btn-primary"%></p><p><%= link_to 'Cancel', portal_home_path %></p>
 <% end %>
 
 <br />

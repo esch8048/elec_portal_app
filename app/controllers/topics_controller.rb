@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  impressionist :actions=>[:show,:index]
   before_filter :admin_required, :only => :destroy
   def index
     @topics = Topic.all
@@ -6,6 +7,7 @@ class TopicsController < ApplicationController
  
   def show
     @topic = Topic.find(params[:id])
+    impressionist(@topic)
   end
  
   def new

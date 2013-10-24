@@ -13,11 +13,6 @@
 		  <td><%= link_to topic.most_recent_post_username, "/users/#{topic.last_poster_id}" %>  
 		  <% else %>no posts<% end %> </td>
       <td><%= topic.last_post_at %></td>
-      <td><%= link_to "Show", topic %></td>
-      <td><%= link_to "Edit", edit_topic_path(topic) %></td>
-      <td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-
-<p><%= link_to "New Topic", new_topic_path %></p>

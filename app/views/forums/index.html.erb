@@ -5,7 +5,6 @@
           <tr>
            <th>Forum</th>  
           <th>Description</th> 
-
           <th>Last Post</th> 
           <th>Activity</th> 
 
@@ -16,7 +15,7 @@
 
           <tr>
             <td><%= link_to h(forum.name), forum_path(forum.id) %></td>
-            <td><%= forum.description %></td>
+            <td><%= wrap(forum.description) %></td>
             <td> 
                 <% if forum.most_recent_post%>
                 <% if forum.most_recent_post.last_post_at%>
@@ -42,7 +41,7 @@
 
         </tbody>
       </table>
-<% if current_user %>    
+<% if admin? %>    
     <button type="button" class="btn btn-default"><%= link_to "New Forum", new_forum_path %></button>
 <% end %>
 <!-- <table class="table table-striped table-hover">  

@@ -7,16 +7,17 @@
 	<% for post in @topic.posts %> 
 	<tr>
 		<td><%= link_to User.find(post.user.id).name, user_url(post.user) %></td>
-		<td><%= post.content %></td>
+		<td><%= wrap(post.content) %></td>
+		<% if admin? %><td><%= link_to "Delete", post, :confirm => 'Are you sure?', :method => :delete, class:"btn btn-danger" %></td><% end %>	</tr>  
 	</tr>
   <% end %>
 </table>
  
 
 <p>  
-  <% if  current_user %><%= link_to "Reply", "#{new_post_path}?topic=#{@topic.id}" %> |<% end %>  
-  <% if current_user.name == "admin" %><%= link_to "Destroy Topic", @topic, :confirm => 'Are you sure?', :method => :delete %> |<% end %>  
-  <%= link_to "View All", forum_path(@topic.forum_id) %>  
+  <% if  current_user %><%= link_to "Reply", "#{new_post_path}?topic=#{@topic.id}" , class:"btn" %> <% end %>  
+  <% if current_user.name == "admin" %><%= link_to "Destroy Topic", @topic, :confirm => 'Are you sure?', :method => :delete,  class:"btn"  %> <% end %>  
+  <%= link_to "View All Threads", forum_path(@topic.forum_id), class:"btn"  %>  
 </p>
 
 

@@ -11,10 +11,9 @@
       <td align ="center"><%= link_to h(topic.name), topic_path(topic.id) %>  </td>
       <td align ="center"><%= topic.posts.size%></td>  
       <td align ="center">
-	    <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago <% else %>no posts<% end %></td> 
+	    <% if topic.last_post_at%><%= distance_of_time_in_words_to_now topic.last_post_at %> ago by <%= link_to topic.most_recent_post_username, "/users/#{topic.last_poster_id}" %><% else %>no posts<% end %></td> 
 	<% if admin? %><td><%= link_to "Delete", topic, :confirm => 'Are you sure?', :method => :delete, class:"btn btn-danger" %></td><% end %>	</tr>  
   <% end %>  
 </table>  
   
-<p><% if current_user %><%= link_to "New Thread", "/topics/new?forum=#{@forum.id}" %><% end %></p> 
-<p><%= link_to "Forum Homepage", "/forums" %></p>
+<p><% if current_user %><%= link_to "New Thread", "/topics/new?forum=#{@forum.id}", class:"btn" %><% end %><%= link_to "Forum Homepage", "/forums",class:"btn" %></p>

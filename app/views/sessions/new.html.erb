@@ -11,8 +11,8 @@
 			<%= label_tag :password %><br />
 			<%= password_field_tag :password %>
 		  </p>
-		  <p class="button"><%= submit_tag "Log in" %></p>
-		  <p class="button"><%= link_to 'Register', new_user_path %></p>
+		  <p ><%= submit_tag "Log in", class: "btn btn-large btn-primary" %></p>
+		  <p class="button"><%= link_to 'Register', new_user_path  %></p>
 		<% end %>
 	</div>
 </body>

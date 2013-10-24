@@ -1,7 +1,7 @@
 <footer class="footer">
   <small>
   <% if current_user %>
-    Logged in as <%= current_user.username unless current_user.blank? %>.
+    Logged in as <%= link_to current_user.name, user_url(current_user) %>.
     <%= link_to "Log out", signout_path %>
   <% else %>
     <%= link_to "Sign up", signup_path %> or

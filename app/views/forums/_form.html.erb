@@ -3,10 +3,8 @@
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name,style:"width:440px" %>
-  </p>
-  <p>
     <%= f.label :description %><br />
     <%= f.text_area :description ,style:"height:220px;width:440px"%>
   </p>
-  <p><%= f.submit %></p>
+  <p><%= f.submit "Create Forum",class:"btn"%><%= link_to "Back to List", forums_path ,class:"btn"%></p>
 <% end %>

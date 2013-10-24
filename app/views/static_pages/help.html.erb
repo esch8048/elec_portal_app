@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <% provide(:title, 'Help') %>
 <h1>Help</h1>
 <p>
@@ -6,3 +7,27 @@
 <p>
 And stuff.
 </p>
+
+<% else %>
+
+
+<div style="left: 50%;"class="center hero-unit">
+  <p style="text-align: center;font: 2.1em Arial,Helvetica,sans-serif;">AUTHENTICATION REQUIRED</p>
+
+  <p style="font-family: arial, verdana, helvetica, sans-serif;
+font-size: medium;
+color: rgb(255, 0, 0); text-align:center;">
+    You have not authenticated for this application or your authenticated session has expired. Please re-authenticate.
+
+
+  </p>
+  <p>By entering your UniKey details, you agree to abide by the conditions of the ICT Resources Policy.
+
+</p>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+
+
+
+  <% end %> 

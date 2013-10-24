@@ -65,10 +65,11 @@
     <p><%= link_to 'Blogs', blog_path %></p>
     <p><%= link_to 'Loyalty Programme', redeempoints_path %></p></div>
           <div class="span9">
+                        <%= yield %>
+
     </div>
-      <% end %>
 
-
+  <% else %>
             <%= yield %>
 
 
@@ -80,3 +81,4 @@
   </div></div>
   </body>
 </html>
+      <% end %>

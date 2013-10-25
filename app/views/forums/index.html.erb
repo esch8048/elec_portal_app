@@ -27,13 +27,13 @@
                   no posts
                 <% end %>
             </td>
-            <td><%= forum.topics.count %> threads</td>
-    <% if current_user.admin %>  
+            <td><%= forum.topics.count %> thread(s)</td>
+    <% if admin? %>  
           <td>
-            <%= link_to "Edit", edit_forum_path(forum) %>
+            <%= link_to "Edit", edit_forum_path(forum), class:"btn"%>
           </td>  
           <td>
-            <%= link_to "Delete", forum, :confirm => 'Are you sure?', :method => :delete %>
+            <%= link_to "Delete", forum, :confirm => 'Are you sure?', :method => :delete ,class:"btn btn-danger"%>
           </td>
     <% end %> 
           </tr>

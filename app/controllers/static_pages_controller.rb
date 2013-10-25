@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+skip_before_filter :require_login
+
   def home
 	if current_user
 		redirect_to portal_home_url

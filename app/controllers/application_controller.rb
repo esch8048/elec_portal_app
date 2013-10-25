@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   include SessionsHelper
   helper_method :current_user
+  before_filter :require_login
 
 	private
 
@@ -13,6 +14,14 @@ class ApplicationController < ActionController::Base
 		  session[:student_id] = nil
 		  redirect_to root_url	  
 	end
+	
+	private
+
+  def require_login
+    unless current_user
+      redirect_to root_url
+    end
+  end
 	
 	 def admin_required  
     unless current_user && (current_user.permission_level == 1 || current_user.id == 1)  
